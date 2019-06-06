@@ -22,3 +22,19 @@ Must not expose sensitive API key information on the server, see Protecting-API-
 --Authentication (JSON Web Tokens, sessions, ec)  
 --Existing Public Dataset to power DB  
 --Migration strategy for sharing data across team members (seed/schema.sql)  
+
+# Presentation:
+Overall Concept
+Motivation for development
+Design Process
+Tech Used/How they work
+Demo of functionality
+Direction of future development
+Sometimes talking intelligently about tech > doing tech
+
+# Grading:
+Concept
+Design
+Functionality
+Collaboration
+Presentation

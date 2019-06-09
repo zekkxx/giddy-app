@@ -1,3 +1,4 @@
+USE horsedb;
 -- ************************************** `User`
 CREATE TABLE `User`
 (
@@ -32,7 +33,6 @@ CREATE TABLE `HorseStats`
  `Reliability`  integer NOT NULL ,
  `Endurance`    integer NOT NULL ,
 
-PRIMARY KEY),
 KEY `fkIdx_44` (`HorseId`),
 CONSTRAINT `FK_44` FOREIGN KEY `fkIdx_44` (`HorseId`) REFERENCES `Horse` (`HorseId`)
 );

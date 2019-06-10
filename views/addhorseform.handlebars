@@ -56,97 +56,25 @@
                             <option>4</option>
                         </select>
                     </div>
-                    {{!-- <div class="form-group">
-                        <label for="form-check">Topspeed:</label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio1" value="topSpeedOption1">
-                                <label class="form-check-label" for="inlineRadio1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio2" value="topSpeedOption2">
-                                <label class="form-check-label" for="inlineRadio2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio3" value="topSpeedOption3">
-                                <label class="form-check-label" for="inlineRadio3">3 </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio4" value="topSpeedOption4">
-                                <label class="form-check-label" for="inlineRadio3">4</label>
+                    <div class="submitButton">
+                        <button id="addHorse" class="btn btn-primary float-right" data-toggle="modal" data-target="#matchModal">Submit</button>
+                        <div id="matchModal" class="modal" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Your horse has been add to our database!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default submitButton" data-dismiss="modal" href="/">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="form-check">Endurance:</label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio1" value="enduranceOption1">
-                                <label class="form-check-label" for="inlineRadio1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio2" value="enduranceOption2">
-                                <label class="form-check-label" for="inlineRadio2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio3" value="enduranceOption3">
-                                <label class="form-check-label" for="inlineRadio3">3 </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio4" value="enduranceOption4">
-                                <label class="form-check-label" for="inlineRadio3">4</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="form-check">Reliability:</label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio1" value="reliabilityOption1">
-                                <label class="form-check-label" for="inlineRadio1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio2" value="reliabilityOption2">
-                                <label class="form-check-label" for="inlineRadio2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio3" value="reliabilityOption3">
-                                <label class="form-check-label" for="inlineRadio3">3 </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio4" value="reliabilityOption4">
-                                <label class="form-check-label" for="inlineRadio3">4</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="form-check">Acceleration:</label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio1" value="accelerationOption1">
-                                <label class="form-check-label" for="inlineRadio1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio2" value="accelerationOption2">
-                                <label class="form-check-label" for="inlineRadio2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio3" value="accelerationOption3">
-                                <label class="form-check-label" for="inlineRadio3">3 </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio4" value="accelerationOption4">
-                                <label class="form-check-label" for="inlineRadio3">4</label>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <button id="addHorse" class="btn btn-primary float-right">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
-{{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
 

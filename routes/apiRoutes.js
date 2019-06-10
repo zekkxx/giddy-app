@@ -11,11 +11,10 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/horses", function(req, res) {
     db.Horse.create(req.body).then(function(dbHorse) {
-      // db.Stat.create(req.body).then(function(req, res) {
-        
-      // }
-      // // db.Stats.create. inside the .then statement I will include sthe res.json
-      // // res.json(dbHorse);
+      db.Stat.create(req.body).then(function(req, res) { 
+        res.json(dbHorse);
+      });
+      // db.Stats.create. inside the .then statement I will include sthe res.json
     });
   });
 

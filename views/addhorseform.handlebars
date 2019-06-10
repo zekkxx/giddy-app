@@ -1,0 +1,152 @@
+<div id="addhorsefrom">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h1>{{msg}}</h1>
+                <h2>Add a Horse:</h2>
+                <br>
+                <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.</h6>
+                <br>
+                <form class="horseForm">
+                    {{!-- <div class="form-group">
+                        <label for="example-text">Owner Name:</label>
+                        <input type="text" id="on" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="example-text">Horse Name:</label>
+                        <input type="text" id="hn" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit">
+                    </div>
+                    <div class="form-group">
+                        <label for="example-text">Horse's Age:</label>
+                        <input type="text" id="hage" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's topspeed (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control horseTopSpeed" id="horseTopSpeed">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's endurance (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" id="horseEndurance">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's reliability (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" id="horseReliability">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's acceleration (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" id="horseAcceleration">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    {{!-- <div class="form-group">
+                        <label for="form-check">Topspeed:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio1" value="topSpeedOption1">
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio2" value="topSpeedOption2">
+                                <label class="form-check-label" for="inlineRadio2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio3" value="topSpeedOption3">
+                                <label class="form-check-label" for="inlineRadio3">3 </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tpInlineRadioOptions" id="topSpeedRadio4" value="topSpeedOption4">
+                                <label class="form-check-label" for="inlineRadio3">4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-check">Endurance:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio1" value="enduranceOption1">
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio2" value="enduranceOption2">
+                                <label class="form-check-label" for="inlineRadio2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio3" value="enduranceOption3">
+                                <label class="form-check-label" for="inlineRadio3">3 </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="eInlineRadioOptions" id="enduranceRadio4" value="enduranceOption4">
+                                <label class="form-check-label" for="inlineRadio3">4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-check">Reliability:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio1" value="reliabilityOption1">
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio2" value="reliabilityOption2">
+                                <label class="form-check-label" for="inlineRadio2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio3" value="reliabilityOption3">
+                                <label class="form-check-label" for="inlineRadio3">3 </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rInlineRadioOptions" id="reliabilityInlineRadio4" value="reliabilityOption4">
+                                <label class="form-check-label" for="inlineRadio3">4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-check">Acceleration:</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio1" value="accelerationOption1">
+                                <label class="form-check-label" for="inlineRadio1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio2" value="accelerationOption2">
+                                <label class="form-check-label" for="inlineRadio2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio3" value="accelerationOption3">
+                                <label class="form-check-label" for="inlineRadio3">3 </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aInlineRadioOptions" id="accelerationInlineRadio4" value="accelerationOption4">
+                                <label class="form-check-label" for="inlineRadio3">4</label>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <button id="addHorse" class="btn btn-primary float-right">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+

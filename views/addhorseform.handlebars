@@ -1,0 +1,80 @@
+<div id="addhorsefrom">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h1>{{msg}}</h1>
+                <h2>Add a Horse:</h2>
+                <br>
+                <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.</h6>
+                <br>
+                <form class="horseForm" action="/api/horses" method="POST">
+                    {{!-- <div class="form-group">
+                        <label for="example-text">Owner Name:</label>
+                        <input type="text" id="on" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="example-text">Horse Name:</label>
+                        <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit">
+                    </div>
+                    <div class="form-group">
+                        <label for="example-text">Horse's Age:</label>
+                        <input type="text" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's topspeed (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control horseTopSpeed" name="speed" id="horseTopSpeed">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's endurance (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" name="endurance" id="horseEndurance">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's reliability (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" name="reliability" id="horseReliability">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Please select the horse's acceleration (1(weaker quality) to 4(strongest quality):</label>
+                        <select class="form-control" name="acceleration" id="horseAcceleration">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="submitButton">
+                        <button id="addHorse" class="btn btn-primary float-right" data-toggle="modal" data-target="#matchModal">Submit</button>
+                        <div id="matchModal" class="modal" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Your horse has been add to our database!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default submitButton" data-dismiss="modal" href="/">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

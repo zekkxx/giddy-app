@@ -6,29 +6,46 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  // saveExample: function(example) {
+  //   return $.ajax({
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     type: "POST",
+  //     url: "api/examples",
+  //     data: JSON.stringify(example)
+  //   });
+  // },
+
+  getHorse: function() {
     return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
+      url: "/horses/",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+
+  getStats: function() {
     return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      url: "/horses/:category/",
+      type: "GET"
     });
-  }
-};
+  },
+
+getOwner: function() {
+  return $.ajax({
+    url: "/horses/owner/:id",
+    type: "GET"
+  });
+},
+
+
+//   deleteExample: function(id) {
+//     return $.ajax({
+//       url: "api/examples/" + id,
+//       type: "DELETE"
+//     });
+//   }
+// };
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {

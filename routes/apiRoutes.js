@@ -1,24 +1,48 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+module.exports = function (app) {
+  
+  // Horse Name GET
+  app.get("/horses", function (req, res) {
+    db.horsedb.findAll({}).then(function (horsedb) {
+      res.json(horsedb);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Horse Stats GET
+  app.get("/horses/:category", function (req, res) {
+    db.horsedb.findAll({
+      where: {
+        id: req.params.category
+      }
+    }).then(function (horsedb) {
+      res.json(horsedb);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Horse ID GET
+  app.get("horses/horse/:id", function (req, res) {
+    db.horsedb.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (horsedb) {
+      console.log(horsedb);
+      res.json(horsedb);
+    });
+  });
+
+  // Horse Owner GET
+  app.get("/horses/owner/:id", function (req, res) {
+    db.horsedb.findAll({
+      where: {
+        id: req.params.
+        }
+    }).then(function (req, res) {
+      res.json(horsedb);
+
     });
   });
 };
+
+

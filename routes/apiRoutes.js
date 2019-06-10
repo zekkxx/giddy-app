@@ -3,14 +3,15 @@ var db = require("../models");
 module.exports = function (app) {
   
   // Horse Name GET
-  app.get("/horses", function (req, res) {
+  app.get("api/horses", function (req, res) {
     db.horsedb.findAll({}).then(function (horsedb) {
       res.json(horsedb);
+      console.log(res.json(horsedb));
     });
   });
 
   // Horse Stats GET
-  app.get("/horses/:category", function (req, res) {
+  app.get("api/horses/:category", function (req, res) {
     db.horsedb.findAll({
       where: {
         id: req.params.category
@@ -21,7 +22,7 @@ module.exports = function (app) {
   });
 
   // Horse ID GET
-  app.get("horses/horse/:id", function (req, res) {
+  app.get("api/horses/horse/:id", function (req, res) {
     db.horsedb.findOne({
       where: {
         id: req.params.id
@@ -36,7 +37,7 @@ module.exports = function (app) {
   app.get("/horses/owner/:id", function (req, res) {
     db.horsedb.findAll({
       where: {
-        id: req.params.
+        id: req.params.id
         }
     }).then(function (req, res) {
       res.json(horsedb);

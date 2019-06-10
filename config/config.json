@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "exampledb",
+    "database": "horsedb",
     "host": "localhost",
     "dialect": "mysql"
   },

@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS horsedb;
-CREATE DATABASE horsedb;

@@ -12,7 +12,15 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    res.render("login");
+    res.render("login", {
+      user: {type: "Login"}
+    });
+  });
+
+  app.get("/register", function(req, res) {
+    res.render("login", {
+      user: {type: "Register"}
+    });
   });
 
   // Load example page and pass in an example by id

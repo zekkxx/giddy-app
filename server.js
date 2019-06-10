@@ -22,6 +22,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+require("./routes/loginRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
@@ -38,7 +39,7 @@ db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "Listening on http://localhost:%s/",
-      PORT,
+      PORT
     );
   });
 });

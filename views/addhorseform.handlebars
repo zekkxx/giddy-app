@@ -7,22 +7,22 @@
                 <br>
                 <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.</h6>
                 <br>
-                <form class="horseForm">
+                <form class="horseForm" action="/api/horses" method="POST">
                     {{!-- <div class="form-group">
                         <label for="example-text">Owner Name:</label>
                         <input type="text" id="on" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
                     </div> --}}
                     <div class="form-group">
                         <label for="example-text">Horse Name:</label>
-                        <input type="text" id="hn" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit">
+                        <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit">
                     </div>
                     <div class="form-group">
                         <label for="example-text">Horse's Age:</label>
-                        <input type="text" id="hage" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                        <input type="text" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Please select the horse's topspeed (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control horseTopSpeed" id="horseTopSpeed">
+                        <select class="form-control horseTopSpeed" name="speed" id="horseTopSpeed">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Please select the horse's endurance (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" id="horseEndurance">
+                        <select class="form-control" name="endurance" id="horseEndurance">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Please select the horse's reliability (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" id="horseReliability">
+                        <select class="form-control" name="reliability" id="horseReliability">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Please select the horse's acceleration (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" id="horseAcceleration">
+                        <select class="form-control" name="acceleration" id="horseAcceleration">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

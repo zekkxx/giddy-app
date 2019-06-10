@@ -4,10 +4,6 @@
         "commonjs": true,
         "node": true
     },
-    "extends": "prettier",
-    "plugins": [
-        "prettier"
-      ],
     "rules": {
         "no-duplicate-case":"error",
         "no-empty":"error",
@@ -26,10 +22,6 @@
             "error",
             2
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "error",
             "double"
@@ -38,6 +30,5 @@
             "error",
             "always"
         ],
-        "prettier/prettier": "error"
     }
 }

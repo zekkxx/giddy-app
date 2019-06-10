@@ -19,8 +19,11 @@ module.exports = function(app) {
     console.log(req);
     db.addOne(req.body.name, function(result) {
       res.json({id: result.insertId});
-    })
-  })
+    });
+  });
+  app.get("/login", function(req, res) {
+    res.render("login");
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

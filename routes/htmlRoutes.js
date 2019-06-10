@@ -1,17 +1,26 @@
-var db = require("../models");
+var express = require("express");
+var router = express.Router();
+
+var db = require("../models/index");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
-    res.render("index", {});
-    // db.Example.findAll({}).then(function(horsedb) {
+  app.get("/addhorse", function(req, res) {
+    // db.Example.findAll({}).then(function(dbExamples) {
     //   res.render("index", {
     //     msg: "Welcome!",
-    //     examples: horsedb
+    //     examples: dbExamples
     //   });
     // });
+    res.render("addhorseform", {});
   });
 
+  router.post("/horses", function(req, res){
+    console.log(req);
+    db.addOne(req.body.name, function(result) {
+      res.json({id: result.insertId});
+    });
+  });
   app.get("/login", function(req, res) {
     res.render("login");
   });

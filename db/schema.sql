@@ -1,30 +1,40 @@
 DROP DATABASE IF EXISTS horsedb;
 CREATE DATABASE horsedb;
 
-USE horsedb;
+CREATE TABLE IF NOT EXISTS `Users`
+    (
+    `id` INTEGER NOT NULL auto_increment , 
+    `password` VARCHAR(255), 
+    `username` VARCHAR(255) NOT NULL, 
+    `created_at` DATETIME NOT NULL,
+    PRIMARY KEY(`id`)
+    )
+    ENGINE=InnoDB;
 
-CREATE TABLE Horse
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    horse_name VARCHAR(16) NOT NULL,
-    age INT NOT NULL,
-    --Foreign Key of Owner ID
-    PRIMARY KEY(id)
-);
+CREATE TABLE IF NOT EXISTS `Horses`
+    (
+    `id` INTEGER NOT NULL auto_increment , 
+    `horse_name` VARCHAR(255), 
+    `age` INTEGER, 
+    `created_at` DATETIME NOT NULL, 
+    `user_id` INTEGER, 
+    PRIMARY KEY(`id`), 
+    FOREIGN KEY(`user_id`) REFERENCES `Users`(`id`) 
+    ON DELETE SET NULL ON UPDATE CASCADE
+    ) 
+    ENGINE=InnoDB;
 
-CREATE TABLE Stat
-(
-    speed INT NOT NULL,
-    acceleration INT NOT NULL,
-    reliability INT NOT NULL,
-    endurance INT NOT NULL
-    --Foreign Key of Horse ID
-);
-
-CREATE TABLE User
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(16),
-    password VARCHAR(12),
-    PRIMARY KEY(id)
-);
+CREATE TABLE IF NOT EXISTS `Stats`
+    (
+    `id` INTEGER NOT NULL auto_increment , 
+    `speed` INTEGER, 
+    `acceleration` INTEGER, 
+    `reliability` INTEGER,
+    `endurance` INTEGER, 
+    `created_at` DATETIME NOT NULL, 
+    `horse_id` INTEGER, 
+    PRIMARY KEY(`id`), 
+    FOREIGN KEY(`horse_id`) REFERENCES `Horses`(`id`) 
+    ON DELETE CASCADE ON UPDATE CASCADE
+    ) 
+    ENGINE=InnoDB;

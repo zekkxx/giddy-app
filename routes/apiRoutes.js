@@ -8,17 +8,12 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+/*  app.post("/api/horses", function(req, res) {
+    db.Horse.create(req.body).then(function(dbHorse) {
+      db.Stat.create(req.body).then(function(req, res) { 
+        res.json(dbHorse);
+      });
+      // db.Stats.create. inside the .then statement I will include sthe res.json
     });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+  });*/
 };

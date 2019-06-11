@@ -1,8 +1,25 @@
 var db = require("../models");
 
+
 module.exports = function(app) {
 
-  app.post("/register", function(req, res){
+//GET Horses
+app.get("/api/horses", function(req, res) {
+  db.Horse.findAll({}).then(function(dbHorse) {
+    console.log(dbHorse);
+    res.json(dbHorse);
+  });
+});
+
+//GET Horse Stats
+app.get("/api/horses/:category", function(req, res) {
+  db.Stat.findAll({}).then(function(dbStat) {
+    console.log(dbStat)
+    res.json(dbStat);
+  });
+});
+
+  app.post("/register", function(req, res) {
     db.User.create(req.body).then(function(response){
       console.log(response);
       res.redirect("/login");

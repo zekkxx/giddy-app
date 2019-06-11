@@ -18,6 +18,38 @@ module.exports = function(sequelize, DataTypes) {
           len: [1, 20],
           isInt: true
         }
+      },
+      speed: {
+        type: DataTypes.INTEGER,
+        allowNUll: false,
+        validate: {
+          len: [0, 5],
+          isInt: true
+        }
+      },
+      acceleration: {
+        type: DataTypes.INTEGER,
+        allowNUll: false,
+        validate: {
+          len: [0, 5],
+          isInt: true
+        }
+      },
+      reliability: {
+        type: DataTypes.INTEGER,
+        allowNUll: false,
+        validate: {
+          len: [0, 5],
+          isInt: true
+        }
+      },
+      endurance: {
+        type: DataTypes.INTEGER,
+        allowNUll: false,
+        validate: {
+          len: [0, 5],
+          isInt: true
+        }
       }
     },
     {
@@ -28,9 +60,6 @@ module.exports = function(sequelize, DataTypes) {
   );
   Horse.associate = function(models) {
     Horse.belongsTo(models.User);
-    Horse.hasOne(models.Stat, {
-      onDelete: "cascade"
-    });
   };
   return Horse;
 };

@@ -7,7 +7,7 @@ module.exports = function(app) {
   app.get("/horse/owner/:id", function(req, res) {
     // get all horses with owner Id 2
     // .then do res.render and pass in the data I recieve
-    res.render("horsebyowner", {id:1, quote:"hi"});
+    res.render("horsebyowner", {id:1, horse:"hi"});
   });
 
   app.get("/login", function(req, res) {

@@ -13,7 +13,6 @@ app.use(express.static("public"));
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -25,8 +24,9 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app); //Connecting to the database
-require("./routes/htmlRoutes")(app); //
+require("./routes/loginRoutes")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
@@ -41,7 +41,7 @@ db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "Listening on http://localhost:%s/",
-      PORT,
+      PORT
     );
   });
 });

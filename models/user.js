@@ -31,5 +31,10 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
+  User.prototype.validPassword = function(password){
+    return this.password === password;
+  };
+
+  User.sync();
   return User;
 };

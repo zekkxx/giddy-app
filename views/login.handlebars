@@ -1,13 +1,18 @@
-<form action="/login" method="post">
+<h1>Filler</h1>
+<h1>More filler</h1>
+<form action="/{{type}}" method="post">
     <div>
         <label>Username:</label>
-        <input type="text" name="username"/>
+        <input type="text" name="username" required/>
     </div>
     <div>
         <label>Password:</label>
-        <input type="password" name="password"/>
+        <input type="password" name="password" required/>
     </div>
     <div>
-        <input type="submit" value="Log In"/>
+        <input type="submit" value="{{type}}"/>
     </div>
 </form>
+<a href="/register">Register</a>
+ ||
+<a href="/login">Go To Login</a>

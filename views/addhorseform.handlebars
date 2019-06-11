@@ -8,17 +8,13 @@
                 <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.</h6>
                 <br>
                 <form class="horseForm" action="/api/horses" method="POST">
-                    {{!-- <div class="form-group">
-                        <label for="example-text">Owner Name:</label>
-                        <input type="text" id="on" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
-                    </div> --}}
                     <div class="form-group">
                         <label for="example-text">Horse Name:</label>
-                        <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit">
+                        <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit" required>
                     </div>
                     <div class="form-group">
                         <label for="example-text">Horse's Age:</label>
-                        <input type="text" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="Charles S. Howard">
+                        <input type="number" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="1" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Please select the horse's topspeed (1(weaker quality) to 4(strongest quality):</label>
@@ -57,7 +53,7 @@
                         </select>
                     </div>
                     <div class="submitButton">
-                        <button id="addHorse" class="btn btn-primary float-right" data-toggle="modal" data-target="#matchModal">Submit</button>
+                        <button id="addHorse" class="btn btn-primary float-right">Submit</button>
                         <div id="matchModal" class="modal" role="dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -67,7 +63,7 @@
                                     <p>Your horse has been add to our database!</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default submitButton" data-dismiss="modal" href="/">Close</button>
+                                    <button type="button" id="modalSubmit" class="btn btn-default submitButton" href="/">Close</button>
                                 </div>
                             </div>
                         </div>

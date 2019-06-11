@@ -46,3 +46,5 @@ module.exports = function(sequelize, DataTypes) {
   );
   return Stat;
 };
+
+// Need to add forein key here

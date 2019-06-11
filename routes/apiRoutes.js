@@ -11,10 +11,25 @@ module.exports = function(app) {
 
   app.post("/api/horses", function(req, res) {
     db.Horse.create(req.body).then(function(dbHorse) {
+      console.log(dbHorse.dataValues.id);
+      console.log(req.body);
       db.Stat.create(req.body).then(function(req, res) { 
-        res.json(dbHorse);
+        console.log(res);
+        // res.json(dbHorse);
       });
       // db.Stats.create. inside the .then statement I will include sthe res.json
     });
   });
+
+  // app.get("horses/owner/:id", function(req, res) {
+  //   db
+  // })
 };
+
+// example:
+// app.get("/:id", function(req, res) {
+//   connection.query("SELECT * FROM quotes WHERE id= ?", req.params.id, function(err, dataQuotes) {
+//     if (err) throw err;
+//     res.render("single-quote", dataQuotes[0]);
+//   })
+// });

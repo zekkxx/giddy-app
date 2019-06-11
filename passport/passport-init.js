@@ -6,13 +6,9 @@ var db = require("../models");
 
 module.exports = function(expressApp) {
   //initialize your authentication strategies
-  // passport.use(require('./auth_strategies/github'))
   passport.use(require("./auth_strategies/local"));
 
-
   //===============BOILERPLATE
-
-
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);
 
@@ -22,27 +18,14 @@ module.exports = function(expressApp) {
   expressApp.use(passport.initialize());
   // Set up sessions 
   expressApp.use(passport.session());
-
-
   //==============END BOILERPLATE
 
   //Initialize authentication specific routes. This needs to be changed to match your configs
-
-  // expressApp.use(
-  //   require("./routes/github-authentication-routes")(passport)
-  //   )
   expressApp.use(
     require("../routes/loginRoutes")(passport)
   );
-
   return passport;
-
 };
-
-
-
-
-
 
 //==================================================================================================
 // Sessions and User Serialization/Deserialization
@@ -83,16 +66,16 @@ Passport will handle the session ids and everything else for you.
 //Since our user is a Sequelize Model, we can just save the model to serialize it.
 //the data is now persisted to the database
 var serializeUser = function(user, done) {
-  var id = (user.id? user.id: user[0].id); //might be differe
-  console.log("serializing user:", id);
+  var username = (user.username? user.username: user[0].username); //might be different
+  console.log("serializing user:", username);
   //user.save();
-  done(null, id);//save the user's id in the cookie. This is how Passport wants you to do this. 
+  done(null, username);//save the user's id in the cookie. This is how Passport wants you to do this. 
 };
 
 //  deserializeUser is called when resuming a session
 //  it should get your user information from the database
-var deserializeUser = function(savedId, done) {
-  console.log("Deserializing user: ", savedId);
+var deserializeUser = function(savedUsername, done) {
+  console.log("Deserializing user: ", savedUsername);
   /*
     In this case, the User model has the information about our user
     Remember that we saved the id to the cookie in serializeUser, so the savedId passed to us above is the id we need to search
@@ -100,7 +83,7 @@ var deserializeUser = function(savedId, done) {
     We just need to match the id column in the database to savedId
     */ 
   db.User.findOne({ 
-    where:{ id: savedId },
+    where:{ username: savedUsername },
     attributes: {
       exclude: ["password"] //user has the password in it, let's filter that out...for...security.......yes, I know we saved the password in db in plaintext...get off my back
     }

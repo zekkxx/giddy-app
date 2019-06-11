@@ -1,19 +1,7 @@
 var Strategy = require("passport-local").Strategy;
 var db = require ("../../models");
 
-
-//A strategy is the way we are authenticating. A local stategy is one that doesn't user 3rd party auth.
-//This is the simplest strategy. We are storing the username and password in plaintext in the db (I know, I know. super insecure. It's just an example, don't judge)
-//To authenticate:
-// 1. check if the user is in the database 
-// 2. check if the password matches
 var strategy = new Strategy(
-  // 
-  // {
-  // usernameField: 'email',
-  // passwordField: 'passwd'
-  // },
-  //{  session: true },
   //Passport will give us the username and password and the "done" function. 
   function(username, password, done) {
 

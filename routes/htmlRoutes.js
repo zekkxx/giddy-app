@@ -6,13 +6,13 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     res.render("login", {
-      type: "Login"
+      type: "login"
     });
   });
 
   app.get("/register", function(req, res) {
     res.render("login", {
-      type: "Register"
+      type: "register"
     });
   });
 

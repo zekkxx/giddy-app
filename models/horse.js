@@ -59,7 +59,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
   Horse.associate = function(models) {
-    Horse.belongsTo(models.User);
+    Horse.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
+  Horse.sync();
   return Horse;
 };

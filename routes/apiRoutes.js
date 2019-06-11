@@ -11,7 +11,10 @@ module.exports = function(app) {
 
   app.post("/api/horses", function(req, res) {
     db.Horse.create(req.body).then(function(dbHorse) {
-      db.Stat.create(req.body).then(function(req, res) { 
+      console.log(dbHorse.dataValues.id);
+      db.Stat.create(req.body).then(function(dbStat) { 
+        console.log(dbHorse);
+        console.log(dbStat);
         res.json(dbHorse);
       });
       // db.Stats.create. inside the .then statement I will include sthe res.json

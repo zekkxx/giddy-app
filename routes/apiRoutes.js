@@ -21,10 +21,27 @@ module.exports = function(app) {
     });
   });
 
-  // app.get("horses/owner/:id", function(req, res) {
-  //   db
-  // })
+  // get horse data by user
+  app.get("/api/owner/:id", function(req, res) {
+    db.Owner.findOne({
+      include:[db.Horse],
+      where: {
+        id: req.params.id
+      }.then(function(dbOwner){
+        res.json(dbOwner);
+      })
+    });
+    // db.User.findOne({
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // }).then(function(dbHorse) {
+    //   res.json(dbAuthor);
+    // });
+  });
+
 };
+
 
 // example:
 // app.get("/:id", function(req, res) {

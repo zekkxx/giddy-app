@@ -1,5 +1,14 @@
 var db = require("../models");
 
+var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+var checkLogin = function(req, res, next){
+  if(req.user){
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
+
 module.exports = function(app) {
 
   app.post("/register", function(req, res){
@@ -9,16 +18,39 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/horses", function(req/*, res*/) {
-    db.Horse.create(req.body).then(function(dbHorse) {
-      console.log(dbHorse.dataValues.id);
-      db.Stat.create(req.body).then(function(dbStat) { 
-        console.log(dbHorse);
-        console.log(dbStat);
-        //res.json(dbHorse);
-      });
-      // db.Stats.create. inside the .then statement I will include sthe res.json
-      //Currently posts json object, should redirect to appropriate page.
+  app.post("/api/horses", function(req, res) {
+    var newHorse = {
+      horse_name: req.body.horse_name,
+      age: req.body.age,
+      speed: req.body.speed,
+      acceleration: req.body.acceleration,
+      reliability: req.body.reliability,
+      endurance: req.body.endurance,
+      // UserId is the foreign key created by sequelize
+      UserId: req.user.id
+    };
+    db.Horse.create(newHorse).then(function() {
+      console.log("We made a horse");
+      //res.redirect("/addhorse");
     });
+  });
+
+  // get horse data by user
+  app.get("/api/owner/:id", function(req, res) {
+    db.Owner.findOne({
+      include:[db.Horse],
+      where: {
+        id: req.params.id
+      }.then(function(dbOwner){
+        res.json(dbOwner);
+      })
+    });
+    // db.User.findOne({
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // }).then(function(dbHorse) {
+    //   res.json(dbAuthor);
+    // });
   });
 };

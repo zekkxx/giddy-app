@@ -17,7 +17,9 @@ app.use(require("cookie-parser")());
 
 //Setup Passport
 var passport = require("./passport/passport-init")(app);
-console.log(passport);
+if(passport){
+  console.log("Passport Loaded");
+}
 
 //Set Ports
 var PORT = process.env.PORT || 3000;

@@ -12,4 +12,8 @@ $(function(){
   $("#modalSubmit").on("click", function(){
     window.location.href="/";
   });
+  $("#horsestats").on("change", function(event){
+    window.location.href="/horses/"+event.target.value;
+  })
 });
+

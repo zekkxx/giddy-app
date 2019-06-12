@@ -8,6 +8,20 @@ var checkLogin = function(req, res, next){
     res.redirect("/login");
   }
 };
+var checkLoggedOut = function(req, res, next){
+  if(!req.user){
+    next();
+  } else {
+    res.redirect("/");
+  }
+};
+var userCase = function(entity){
+  if(entity){
+    return true;
+  } else {
+    return false;
+  }
+};
 
 module.exports = function(app) {
 
@@ -61,33 +75,41 @@ module.exports = function(app) {
     }).then(function(dbUserHorses) {
       res.render("horsebyowner", {
         user: dbUserHorses.username,
-        horses: dbUserHorses.Horses
+        horses: dbUserHorses.Horses,
+        userCase: userCase(req.user)
       });
     });
   });
 
-  app.get("/login", function(req, res) {
+  app.get("/login", checkLoggedOut, function(req, res) {
     res.render("login", {
-      type: "Login"
+      type: "Login",
+      userCase: userCase(req.user)
     });
   });
 
-  app.get("/register", function(req, res) {
+  app.get("/register", checkLoggedOut, function(req, res) {
     res.render("login", {
-      type: "Register"
+      type: "Register",
+      userCase: userCase(req.user)
     });
   });
 
   app.get("/addhorse", checkLogin, function(req, res) {
     // once the browser loads it will search all users, once it has all the users it will render the page with that data (1)
     db.User.findAll().then(function(users) {
-      res.render("addhorseform", {allUsers: users});
+      res.render("addhorseform", {
+        allUsers: users,
+        userCase: true
+      });
     });      
   });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+    res.render("404", {
+      userCase: userCase(req.user)
+    });
   });
 };
 

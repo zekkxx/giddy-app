@@ -1,5 +1,6 @@
 var db = require("../models");
 
+<<<<<<< HEAD
 
 module.exports = function(app) {
 
@@ -20,12 +21,57 @@ app.get("/api/horses/:category", function(req, res) {
 });
 
   app.post("/register", function(req, res) {
+=======
+var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+var checkLogin = function(req, res, next){
+  if(req.user){
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
+
+module.exports = function(app) {
+
+  app.get("/api/horses", function(req, res){
+    db.Horse.findAll({
+      include:{
+        model: db.User,
+        attributes: {
+          exclude: ["password"]
+        }
+      },
+      order: [["id", "DESC"]],
+      limit: 10
+    }).then(function(response){
+      return res.json(response);
+    });
+  });
+
+  app.get("/api/horses/:category", function(req, res){
+    db.Horse.findAll({
+      include:{
+        model: db.User,
+        attributes: {
+          exclude: ["password"]
+        }
+      },
+      order: [[req.params.category, "DESC"]],
+      limit: 10
+    }).then(function(response){
+      return res.json(response);
+    });
+  });
+
+  app.post("/register", function(req, res){
+>>>>>>> 785fa919a6b0e6ed75aad6129975a8abc5bf983c
     db.User.create(req.body).then(function(response){
       console.log(response);
       res.redirect("/login");
     });
   });
 
+<<<<<<< HEAD
   app.post("/api/horses", function(req/*, res*/) {
     db.Horse.create(req.body).then(function(dbHorse) {
       console.log(dbHorse.dataValues.id);
@@ -42,6 +88,9 @@ app.get("/api/horses/:category", function(req, res) {
 
 
   app.post("/api/horses", function(req, res) {
+=======
+  app.post("/api/horses", checkLogin, function(req, res) {
+>>>>>>> 785fa919a6b0e6ed75aad6129975a8abc5bf983c
     var newHorse = {
       horse_name: req.body.horse_name,
       age: req.body.age,
@@ -65,15 +114,8 @@ app.get("/api/horses/:category", function(req, res) {
       where: {
         id: req.params.id
       }.then(function(dbOwner){
-        res.json(dbOwner);
+        return res.json(dbOwner);
       })
     });
-    // db.User.findOne({
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // }).then(function(dbHorse) {
-    //   res.json(dbAuthor);
-    // });
   });
 };

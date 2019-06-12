@@ -5,7 +5,6 @@
                 <div class="ownersHorse-container">
                     <h3>Owner Username: {{user}}</h3>
                     <table class="table table-striped">
-                    <table>
                         <thead>
                             <tr>
                                 <th>Horse Name</th>
@@ -14,6 +13,9 @@
                                 <th>Endurance</th>
                                 <th>Reliability</th>
                                 <th>Acceleration</th>
+                                {{#if isOwner}}
+                                    <th>Retire Horse?</th>
+                                {{/if}}
                             </tr>
                         </thead>
                         <tbody>
@@ -26,11 +28,15 @@
                                 <td>{{endurance}}</td>
                                 <td>{{reliability}}</td>
                                 <td>{{acceleration}}</td>
+                                {{#if ../isOwner}}
+                                    <td>
+                                        <button type="button" class="btn btn-danger">X</button>
+                                    </td>
+                                {{/if}}
                                 {{!-- {{/each}} --}}
                             </tr>
                             {{/horses}}                            
                         </tbody>
-                    </table>
                     </table>
                 </div>
             </div>

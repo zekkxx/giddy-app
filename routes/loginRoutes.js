@@ -13,7 +13,7 @@ var checkLogin = function(req, res, next){
 module.exports = function(passport){
   router.post("/login",
     passport.authenticate("local", {
-      successRedirect: "/addhorse",
+      successRedirect: "/",
       failureRedirect: "/login"})
   );
 
@@ -31,10 +31,11 @@ module.exports = function(passport){
     res.send("You are logged in with user " + req.user.username);
   });
 
-  router.get("/logout", function(req, res) { 
+  router.get("/logout", checkLogin, function(req, res) { 
     var old_user=req.user;
     req.logout();
-    res.json({success:(req.user? "No":"Yes"), user:req.user, "old_user":old_user});
+    console.log({success:(req.user? "No":"Yes"), user:req.user, "old_user":old_user});
+    res.redirect("/");
   });
   return router;
 };

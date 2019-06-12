@@ -1,27 +1,5 @@
 var db = require("../models");
 
-<<<<<<< HEAD
-
-module.exports = function(app) {
-
-//GET Horses // need to get back (json) list of 10 in order by id.
-app.get("/api/horses", function(req, res) {
-  db.Horse.findAll({/*limit 10, sort by id desc*/}).then(function(dbHorse) {
-    console.log(dbHorse);
-    res.json(dbHorse);
-  });
-});
-
-//GET Horse Stats // need to get back (json) list of 10 sortd by category
-app.get("/api/horses/:category", function(req, res) {
-  db.Stat.findAll({/*Limit 10, sort by categories*/}).then(function(dbStat) {
-    console.log(dbStat)
-    res.json(dbStat);
-  });
-});
-
-  app.post("/register", function(req, res) {
-=======
 var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 var checkLogin = function(req, res, next){
   if(req.user){
@@ -64,7 +42,6 @@ module.exports = function(app) {
   });
 
   app.post("/register", function(req, res){
->>>>>>> 785fa919a6b0e6ed75aad6129975a8abc5bf983c
     db.User.create(req.body).then(function(response){
       console.log(response);
       res.redirect("/login");

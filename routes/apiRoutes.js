@@ -9,16 +9,19 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/horses", function(req/*, res*/) {
-    db.Horse.create(req.body).then(function(dbHorse) {
-      console.log(dbHorse);
-      // db.Stat.create(req.body).then(function(dbStat) { 
-      //   console.log(dbHorse);
-      //   console.log(dbStat);
-      // res.json(dbHorse);
-      // });
-      // db.Stats.create. inside the .then statement I will include sthe res.json
-      //Currently posts json object, should redirect to appropriate page.
+  app.post("/api/horses", function(req, res) {
+    var newHorse = {
+      horse_name: req.body.horse_name,
+      age: req.body.age,
+      speed: req.body.speed,
+      acceleration: req.body.acceleration,
+      reliability: req.body.reliability,
+      endurance: req.body.endurance,
+      // UserId is the foreign key created by sequelize
+      UserId: req.body.username
+    };
+    db.Horse.create(newHorse).then(function() {
+      res.redirect("/addhorse");
     });
   });
 
@@ -40,14 +43,4 @@ module.exports = function(app) {
     //   res.json(dbAuthor);
     // });
   });
-
 };
-
-
-// example:
-// app.get("/:id", function(req, res) {
-//   connection.query("SELECT * FROM quotes WHERE id= ?", req.params.id, function(err, dataQuotes) {
-//     if (err) throw err;
-//     res.render("single-quote", dataQuotes[0]);
-//   })
-// });

@@ -13,11 +13,13 @@
                         <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit" required>
                     </div>
 
-                    {{!-- add owner username --}}
                     <div class="form-group">
                         <label for="example-text">Horse Owner (Username):</label>
-                        {{!-- <select class="custom-select" id="author"> --}}
-                        <input type="text" id="honame" name="owner_name" class="form-control" aria-describedby="example-text" placeholder="ebuelow" required>
+                        <select name="username">
+                            {{#each allUsers}}
+                                {{!-- in options we are pulling the primary key which is ID but priting the corresponding username --}}
+                                <option value="{{this.id}}">{{this.username}}</option>
+                            {{/each}}
                         </select>
                     </div>
 

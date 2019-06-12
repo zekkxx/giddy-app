@@ -1,6 +1,6 @@
 var db = require("../models");
 
-var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+//var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 var checkLogin = function(req, res, next){
   if(req.user){
     next();
@@ -40,11 +40,12 @@ module.exports = function(app) {
       order: [["id", "DESC"]],
       limit: 10
     }).then(function(response){
-      res.json(response);
+      res.render("index", {
+        horse: response,
+        userCase: userCase(req.user)
+      });
+      //res.json(response);
     });
-    // res.render("index", {
-    //   test: "default"
-    // });
   });
 
   app.get("/horses/:category", function(req, res){
@@ -58,11 +59,24 @@ module.exports = function(app) {
       order: [[req.params.category, "DESC"]],
       limit: 10
     }).then(function(response){
-      res.json(response);
+      res.render("index", {
+        horse: response,
+        userCase: userCase(req.user)
+      });
+      // res.json(response);
     });
-    // res.render("index", {
-    //   test: req.params.category
-    // });
+    
+  });
+
+  app.get("/horses/horse/:id", function(req, res){
+    db.Horse.findOne({where: {id: req.params.id}})
+      .then(function(result){
+        res.render("horsebyhorse", {
+          horse: result,
+          userCase: userCase(req.user)
+        });
+        //res.json(result);
+      });
   });
 
   app.get("/horses/owner/:id", function(req, res) {

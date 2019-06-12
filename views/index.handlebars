@@ -1,4 +1,25 @@
-<h1>Test</h1>
-<h1>Another Test</h1>
-This should display an index page.
-{{test}}
+<div class="flex-container">
+  <div class="display-box">
+
+    <div class="statSearch">
+      <label for="exampleFormControlSelect1">Select Category:</label>
+      <select class="form-control horsetats" id="horsestats">
+        <option selected disabled>--Select One of the Following--</option>
+        <option>Age</option>
+        <option>Speed</option>
+        <option>Endurance</option>
+        <option>Reliability</option>
+        <option>Acceleration</option>
+      </select>
+    </div>
+
+    <ul>
+      {{#each horse}}
+      <li>
+        <a href="/horses/horse/{{this.id}}">{{this.horse_name}}</a>
+        <a href="/horses/owner/{{this.UserId}}">{{this.User.username}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

@@ -58,10 +58,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-<<<<<<< HEAD
-  Horse.sync();
-=======
-
->>>>>>> 47b896d52467736c4bca3311480cd9d718f36432
   return Horse;
 };

@@ -40,11 +40,11 @@ module.exports = function(app) {
       order: [["id", "DESC"]],
       limit: 10
     }).then(function(response){
-      res.json(response);
+        res.render("index", {
+        horse: response
     });
-    // res.render("index", {
-    //   test: "default"
-    // });
+      //res.json(response);
+    });
   });
 
   app.get("/horses/:category", function(req, res){
@@ -58,11 +58,12 @@ module.exports = function(app) {
       order: [[req.params.category, "DESC"]],
       limit: 10
     }).then(function(response){
-      res.json(response);
+      res.render("index", {
+        horse: response
+      });
+      // res.json(response);
     });
-    // res.render("index", {
-    //   test: req.params.category
-    // });
+    
   });
 
   app.get("/horses/horse/:id", function(req, res){

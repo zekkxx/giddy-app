@@ -12,6 +12,9 @@ $(function(){
   $("#modalSubmit").on("click", function(){
     window.location.href="/";
   });
+  $("#horsestats").on("change", function(event){
+    window.location.href="/horses/"+event.target.value;
+  })
   $("#loginLinkButton").on("click", function(){
     window.location.href="/login";
   });
@@ -26,3 +29,4 @@ $(function(){
     console.log("Neigh, we will not go away");
   });
 });
+

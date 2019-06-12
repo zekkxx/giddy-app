@@ -4,14 +4,12 @@ var db = require ("../../models");
 var strategy = new Strategy(
   //Passport will give us the username and password and the "done" function. 
   function(username, password, done) {
-
     //our user is in Sequelize,
     db.User.findOne({ 
       where:{ username: username }
     }).then(
       function (DBuser) {
         console.log("Back from the database! Let's check if our credentials are good: ");
-
         if (!DBuser) {
           console.log("User " + username + " was not in the DB");
           return done(null, false, { message: "Incorrect username." });
@@ -27,14 +25,10 @@ var strategy = new Strategy(
         console.log("They are!");
         return done(null, DBuser);
       }
-
-    )
-      .catch(function(err) {
-        return done(err, false, { message: "Some DB error:" });
-      })
-    ;
+    ).catch(function(err) {
+      return done(err, false, { message: "Some DB error:" });
+    });
   }
 );
-
 
 module.exports = strategy;

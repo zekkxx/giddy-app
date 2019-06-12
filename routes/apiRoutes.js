@@ -18,10 +18,11 @@ module.exports = function(app) {
       reliability: req.body.reliability,
       endurance: req.body.endurance,
       // UserId is the foreign key created by sequelize
-      UserId: req.body.username
+      UserId: req.user.id
     };
     db.Horse.create(newHorse).then(function() {
-      res.redirect("/addhorse");
+      console.log("We made a horse");
+      //res.redirect("/addhorse");
     });
   });
 

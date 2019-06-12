@@ -2,30 +2,24 @@
 /* eslint-disable camelcase */
 /* eslint-disable linebreak-style */
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define(
-    "User",
-    {
-      password: {
-        type: DataTypes.STRING,
-        allowNUll: false,
-        validate: {
-          len: [1, 12]
-        }
-      },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1, 16]
-        }
+  var User = sequelize.define("User", {
+    password: {
+      type: DataTypes.STRING,
+      allowNUll: false,
+      validate: {
+        len: [1, 12]
       }
     },
-    {
-      timestamps: true,
-      updatedAt: false,
-      underscored: true
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        len: [1, 16]
+      }
     }
-  );
+  });
+
   User.associate = function(models) {
     User.hasMany(models.Horse, {
       onDelete: "cascade"
@@ -35,6 +29,5 @@ module.exports = function(sequelize, DataTypes) {
     return this.password === password;
   };
 
-  User.sync();
   return User;
 };

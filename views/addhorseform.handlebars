@@ -12,6 +12,17 @@
                         <label for="example-text">Horse Name:</label>
                         <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit" required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="example-text">Horse Owner (Username):</label>
+                        <select name="username">
+                            {{#each allUsers}}
+                                {{!-- in options we are pulling the primary key which is ID but priting the corresponding username --}}
+                                <option value="{{this.id}}">{{this.username}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="example-text">Horse's Age:</label>
                         <input type="number" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="1" required>

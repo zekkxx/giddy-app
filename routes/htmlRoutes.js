@@ -1,6 +1,6 @@
 var db = require("../models");
 
-var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+//var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 var checkLogin = function(req, res, next){
   if(req.user){
     next();
@@ -40,9 +40,10 @@ module.exports = function(app) {
       order: [["id", "DESC"]],
       limit: 10
     }).then(function(response){
-        res.render("index", {
-        horse: response
-    });
+      res.render("index", {
+        horse: response,
+        userCase: userCase(req.user)
+      });
       //res.json(response);
     });
   });
@@ -59,7 +60,8 @@ module.exports = function(app) {
       limit: 10
     }).then(function(response){
       res.render("index", {
-        horse: response
+        horse: response,
+        userCase: userCase(req.user)
       });
       // res.json(response);
     });

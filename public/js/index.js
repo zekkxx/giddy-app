@@ -14,7 +14,7 @@ $(function(){
   });
   $("#horsestats").on("change", function(event){
     window.location.href="/horses/"+event.target.value;
-  })
+  });
   $("#loginLinkButton").on("click", function(){
     window.location.href="/login";
   });

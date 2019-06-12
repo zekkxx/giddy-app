@@ -1,5 +1,15 @@
+html, body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
 body  {
   background-color: #eee8da;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navbar-format {
@@ -25,7 +35,9 @@ body  {
   /* position: sticky !important;     */
 }
 
-
+footer{
+  margin-top: 15px;
+}
 
 /* .verifyModal{
   position: fixed;

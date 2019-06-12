@@ -1,5 +1,14 @@
 var db = require("../models");
 
+var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+var checkLogin = function(req, res, next){
+  if(req.user){
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
+
 module.exports = function(app) {
 
   app.post("/register", function(req, res){

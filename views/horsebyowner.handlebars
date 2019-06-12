@@ -1,5 +1,43 @@
-<h1>Test</h1>
-    {{#each userHorses}}
-        {{!-- in options we are pulling the primary key which is ID but priting the corresponding username --}}
-        <div>{{this.horse_name}}</div>
-    {{/each}}
+<div id="viewHorseByOwner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Owner Data</h1>
+                {{user}}
+                {{#each horses}}
+                    <div>{{this.horse_name}}</div>
+                {{/each}}
+                {{!-- <table class="table table-striped"></table>
+                <thead>
+                    <tr>
+                        <th>Owner Name</th>
+                        <th>Horse Name</th>
+                        <th>Horse Age</th>
+                        <th>View Horse Statistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody> --}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{!-- 
+    <ul>
+        {{#each horse}}
+            <li>
+                console.log({{this}});
+                <p><span class="stat">Horse:</span> {{this.name}}</p>
+                <p><span class="stat">Age:</span> {{this.age}}</p>
+                {{!-- <p><span class="stat">Topspeed:</span> {{this.author}}</p>
+                <p><span class="stat">Endurance:</span> {{this.author}}</p>
+                <p><span class="stat">Reliability:</span> {{this.author}}</p>
+                <p><span class="stat">Accerlation:</span> {{this.author}}</p> --}}
+                {{!-- <a href="/{{this.id}}">View Horse Stats</a>
+            </li>
+        {{/each}}
+    </ul> --}} 

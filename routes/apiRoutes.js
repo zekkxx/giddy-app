@@ -50,6 +50,7 @@ module.exports = function(app) {
 
   app.post("/api/horses", checkLogin, function(req, res) {
     var newHorse = {
+      // eslint-disable-next-line camelcase
       horse_name: req.body.horse_name,
       age: req.body.age,
       speed: req.body.speed,

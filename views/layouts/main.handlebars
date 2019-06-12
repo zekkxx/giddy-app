@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-format fixed-top navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-format sticky-top navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand navbar-title-format">
           <img src="/images/temp_horse_logo.png" width="60" height="40" class="d-inline-block align-top" alt="">
@@ -23,32 +23,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-            <ul class="navbar-nav ml-auto header-detail-items">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Username</a>
-                </li>
-            </ul>
-        </div>
+        {{> user-block }}
     </div>
   </nav>
-  {{!-- <nav class="navbar fixed-top navbar-dark">
-    <a class="navbar-brand">
-      <img src="images/temp_horse_logo.png" width="60" height="40" class="d-inline-block align-top">
-      HorseRacer
-    </a>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-        <ul class="navbar-nav ml-auto header-detail-items">
-          <li class="nav-item active">
-              <a class="nav-link" href="index.html">Login</a>
-          </li>
-        </ul>
-    </div>
-  </nav> --}}
-
   {{{body}}}
-
-  <footer class="footer footer-details fixed-bottom text-center">2019 © Copyright:
+  <footer class="footer footer-details text-center">2019 © Copyright:
       <a href=""> Home</a>
   </footer>
 </body>

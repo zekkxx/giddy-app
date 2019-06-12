@@ -1,16 +1,26 @@
-<form action="/{{type}}" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username" required/>
+<div id="loginform">
+    <div class="container">
+        <h1 class="text-center">{{type}}</h1>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <form action="/{{type}}" method="post">
+                    <div class="form-group">
+                        <label for="loginUsernameInput">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPasswordInput">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                            required />
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="{{type}}"/>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="/register">Register</a> || <a href="/login">Go To Login</a>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" required/>
-    </div>
-    <div>
-        <input type="submit" value="{{type}}"/>
-    </div>
-</form>
-<a href="/register">Register</a>
- ||
-<a href="/login">Go To Login</a>
+</div>

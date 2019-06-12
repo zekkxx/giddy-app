@@ -1,18 +1,28 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var bodyParser = require("body-parser");
 
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(require("cookie-parser")());
+
+//Setup Passport
+var passport = require("./passport/passport-init")(app);
+if(passport){
+  console.log("Passport Loaded");
+}
+
+//Set Ports
+var PORT = process.env.PORT || 3000;
 
 // Handlebars
 app.engine(
@@ -23,8 +33,12 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//Set Forbidden Route
+app.get("/forbidden", function(req,res) {
+  res.send(403, "You are not authorized");
+});
+
 // Routes
-require("./routes/loginRoutes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

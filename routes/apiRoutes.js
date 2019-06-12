@@ -78,4 +78,15 @@ module.exports = function(app) {
       })
     });
   });
+
+  app.delete("/api/horses/horse/:id", function(req, res) {
+    db.Horse.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
+  });
+
 };

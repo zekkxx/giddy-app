@@ -12,12 +12,15 @@ module.exports = function(app) {
   // Ellen still in progress
   app.get("/horse/owner/:id", function(req, res) {
     // get all horses with owner Id 2
-    db.Horse.findAll({
-      // include:[db.Horse],
-      where: {UserId: req.params.id}
-    }).then(function(selectHorses) {
-      // console.log(selectHorses);
-      res.render("horsebyowner", {usersHorses: selectHorses});
+    db.User.findOne({
+      include:[db.Horse],
+      where: {id: req.params.id},
+      attributes: {
+        exclude: ["password"]
+      }
+    }).then(function(dbUserHorses) {
+      // res.json(dbUserHorses);
+      res.render("horsebyowner", {usersHorses: dbUserHorses.Horses, username: dbUserHorses.username});
     });
     // .then do res.render and pass in the data I recieve
   });

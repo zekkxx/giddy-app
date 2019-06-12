@@ -36,3 +36,18 @@ body  {
   margin: auto;
   display: table;
 } */
+
+.flex-container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.display-box {
+  background-color: beige;
+  width: 50%;
+  padding: 20px;
+  border-width: thin;
+  border: #5D5C61;
+
+}

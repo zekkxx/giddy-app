@@ -18,8 +18,6 @@ module.exports = function(app) {
     });      
   });
 
-
-  // Ellen still in progress
   app.get("/horse/owner/:id", function(req, res) {
     db.User.findOne({
       include:[db.Horse],
@@ -32,17 +30,9 @@ module.exports = function(app) {
         user: dbUserHorses.username,
         horses: dbUserHorses.Horses
       });
-      //res.json(dbUserHorses);
+      // res.json(dbUserHorses);
     });
-    // .then do res.render and pass in the data I recieve
-    //res.render("horsebyowner", {id:1, horse:"hi"});
   });
-  // app.get("/test/test1*", function(req, res) {
-  //   res.render("horsebyowner", {});
-  // });
-
-  // End of Ellen still in progress
-
 
   app.get("/login", function(req, res) {
     res.render("login", {

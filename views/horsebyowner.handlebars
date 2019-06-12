@@ -5,7 +5,9 @@
                 <div class="ownersHorse-container">
                     <h3>Owner Username: {{user}}</h3>
                     <table class="table table-striped">
+                    {{!-- Add table --}}
                     <table>
+                        {{!-- Set headers --}}
                         <thead>
                             <tr>
                                 <th>Horse Name</th>
@@ -16,6 +18,7 @@
                                 <th>Acceleration</th>
                             </tr>
                         </thead>
+                        {{!-- Pull in the horse json data for each horse using handlebars --}}
                         <tbody>
                             {{#horses}}
                             <tr>

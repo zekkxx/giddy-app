@@ -1,5 +1,5 @@
 var passport = require("passport");
-var session = require("express-session")({ secret: "ctiosckzhgkyntvitviaw4", resave: false, saveUninitialized: false });
+var session = require("express-session")({ secret: "w34r374383574r0un0", resave: false, saveUninitialized: false });
 
 var db = require("../models");
 

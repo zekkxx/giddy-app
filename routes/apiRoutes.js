@@ -11,6 +11,36 @@ var checkLogin = function(req, res, next){
 
 module.exports = function(app) {
 
+  app.get("/api/horses", function(req, res){
+    db.Horse.findAll({
+      include:{
+        model: db.User,
+        attributes: {
+          exclude: ["password"]
+        }
+      },
+      order: [["id", "DESC"]],
+      limit: 10
+    }).then(function(response){
+      return res.json(response);
+    });
+  });
+
+  app.get("/api/horses/:category", function(req, res){
+    db.Horse.findAll({
+      include:{
+        model: db.User,
+        attributes: {
+          exclude: ["password"]
+        }
+      },
+      order: [[req.params.category, "DESC"]],
+      limit: 10
+    }).then(function(response){
+      return res.json(response);
+    });
+  });
+
   app.post("/register", function(req, res){
     db.User.create(req.body).then(function(response){
       console.log(response);
@@ -18,8 +48,9 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/horses", function(req, res) {
+  app.post("/api/horses", checkLogin, function(req, res) {
     var newHorse = {
+      // eslint-disable-next-line camelcase
       horse_name: req.body.horse_name,
       age: req.body.age,
       speed: req.body.speed,
@@ -42,15 +73,8 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }.then(function(dbOwner){
-        res.json(dbOwner);
+        return res.json(dbOwner);
       })
     });
-    // db.User.findOne({
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // }).then(function(dbHorse) {
-    //   res.json(dbAuthor);
-    // });
   });
 };

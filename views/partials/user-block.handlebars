@@ -2,10 +2,11 @@
     <ul class="navbar-nav ml-auto header-detail-items">
         <li class="nav-item active">
             {{#if userCase}}
-                Add
+                <button id="addHorseLinkButton" type="button" class="btn btn-success">Register Horse</button>
+                <button id="logoutLinkButton" type="button" class="btn btn-danger">Logout</button>
             {{/if}}
             {{#unless userCase}}
-                Login
+                <button id="loginLinkButton" type="button" class="btn btn-primary">Login</button>
             {{/unless}}
         </li>
     </ul>

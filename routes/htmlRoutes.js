@@ -73,11 +73,20 @@ module.exports = function(app) {
         exclude: ["password"] //user has the password in it, let's filter that out...for...security.......yes, I know we saved the password in db in plaintext...get off my back
       }
     }).then(function(dbUserHorses) {
+      var isOwnerValue;
+      if(req.user){
+        isOwnerValue = (req.user.id === dbUserHorses.id);
+      } else {
+        isOwnerValue = false;
+      }
+      console.log(isOwnerValue);
       res.render("horsebyowner", {
         user: dbUserHorses.username,
         horses: dbUserHorses.Horses,
-        userCase: userCase(req.user)
+        userCase: userCase(req.user),
+        isOwner: isOwnerValue
       });
+      //res.json(dbUserHorses);
     });
   });
 

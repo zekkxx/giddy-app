@@ -65,6 +65,17 @@ module.exports = function(app) {
     // });
   });
 
+  app.get("/horses/horse/:id", function(req, res){
+    db.Horse.findOne({where: {id: req.params.id}})
+      .then(function(result){
+        res.render("horsebyhorse", {
+          horse: result,
+          userCase: userCase(req.user)
+        });
+        //res.json(result);
+      });
+  });
+
   app.get("/horses/owner/:id", function(req, res) {
     db.User.findOne({
       include:[db.Horse],

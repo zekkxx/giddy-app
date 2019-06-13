@@ -12,6 +12,9 @@ $(function(){
   $("#modalSubmit").on("click", function(){
     window.location.href="/";
   });
+  $("#horsestats").on("change", function(event){
+    window.location.href="/horses/"+event.target.value;
+  });
   $("#loginLinkButton").on("click", function(){
     window.location.href="/login";
   });
@@ -21,8 +24,15 @@ $(function(){
   $("#addHorseLinkButton").on("click", function(){
     window.location.href="/addhorse";
   });
-  $(".deleteHorseLinkButton").on("click", function(){
+  $(".deleteButton").on("click", function(event){
     //window.location.href="/addhorse";
     console.log("Neigh, we will not go away");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/horses/horse/" + event.target.id
+    }).then(function(){
+      location.reload(true);
+    });
   });
 });
+

@@ -1,6 +1,6 @@
 var db = require("../models");
 
-var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+//var ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 var checkLogin = function(req, res, next){
   if(req.user){
     next();
@@ -48,6 +48,7 @@ module.exports = function(app) {
     });
   });
 
+  // eslint-disable-next-line no-unused-vars
   app.post("/api/horses", checkLogin, function(req, res) {
     var newHorse = {
       // eslint-disable-next-line camelcase
@@ -77,4 +78,15 @@ module.exports = function(app) {
       })
     });
   });
+
+  app.delete("/api/horses/horse/:id", function(req, res) {
+    db.Horse.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
+  });
+
 };

@@ -39,6 +39,14 @@ footer{
   margin-top: 15px;
 }
 
+footer a{
+  color: white;
+}
+
+footer a:hover{
+  color: antiquewhite;
+}
+
 /* .verifyModal{
   position: fixed;
   left: 0;

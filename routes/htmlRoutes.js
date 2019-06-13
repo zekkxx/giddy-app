@@ -69,7 +69,15 @@ module.exports = function(app) {
   });
 
   app.get("/horses/horse/:id", function(req, res){
-    db.Horse.findOne({where: {id: req.params.id}})
+    db.Horse.findOne({
+      include:{
+        model: db.User,
+        attributes: {
+          exclude: ["password"]
+        }
+      },
+      where: {id: req.params.id}
+    })
       .then(function(result){
         res.render("horsebyhorse", {
           horse: result,

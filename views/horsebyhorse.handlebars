@@ -1,5 +1,14 @@
 <div id="viewHorseByHorse">
     <div class="container">
-        <h3>Horse Name: {{horse.horse_name}}</h3>
+        <h2>Horse Name: {{horse.horse_name}}</h2>
+        <h3>Owner: <a href="/horses/owner/{{horse.UserId}}">{{horse.User.username}}</a></h3>
+        <ul>
+            <li>Age: {{horse.age}}</li>
+            <li>Speed: {{horse.speed}}</li>
+            <li>Acceleration: {{horse.acceleration}}</li>
+            <li>Endurance: {{horse.endurance}}</li>
+            <li>Reliability: {{horse.reliability}}</li>
+        </ul>
+        <p>Registered On: {{horse.createdAt}}</p>
     </div>
 </div>

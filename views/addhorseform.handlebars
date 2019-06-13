@@ -1,55 +1,42 @@
 <div id="addhorsefrom">
     <div class="container">
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12">
                 <h1>{{msg}}</h1>
                 <h2>Add a Horse:</h2>
                 <br>
-                <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.</h6>
+                <h6>Please enter the owner name, horse name, and the horse's statistics in the indicated space below.
+                </h6>
                 <br>
                 <form class="horseForm" action="/api/horses" method="POST">
                     <div class="form-group">
                         <label for="example-text">Horse Name:</label>
-                        <input type="text" id="hn" name="horse_name" class="form-control" aria-describedby="example-text" placeholder="Seabiscuit" required>
+                        <input type="text" id="hn" name="horse_name" class="form-control"
+                            aria-describedby="example-text" placeholder="Seabiscuit" required>
                     </div>
                     <div class="form-group">
                         <label for="example-text">Horse's Age:</label>
-                        <input type="number" id="hage" name="age" class="form-control" aria-describedby="example-text" placeholder="1" required>
+                        <input type="number" id="hage" name="age" class="form-control" aria-describedby="example-text"
+                            placeholder="1" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Please select the horse's topspeed (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control horseTopSpeed" name="speed" id="horseTopSpeed">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                        <h3>Speed: <b id="speedValue"></b></h3>
+                        <input type="range" name="speed" class="custom-range" min="1" max="10" value="5" id="horseTopSpeed">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Please select the horse's endurance (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" name="endurance" id="horseEndurance">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                        <h3>Endurance: <b id="enduranceValue"></b></h3>
+                        <input type="range" name="endurance" class="custom-range" min="1" max="10" value="5" id="horseEndurance">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Please select the horse's reliability (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" name="reliability" id="horseReliability">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                        <h3>Reliability: <b id="reliabilityValue"></b></h3>
+                        <input type="range" name="reliability" class="custom-range" min="1" max="10" value="5"
+                            id="horseReliability">
+
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Please select the horse's acceleration (1(weaker quality) to 4(strongest quality):</label>
-                        <select class="form-control" name="acceleration" id="horseAcceleration">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        <h3>Acceleration: <b id="accValue"></b></h3>
+                        <input type="range" name="acceleration" class="custom-range" min="1" max="10" value="5"
+                            id="horseAcceleration">
                         </select>
                     </div>
                     {{!-- On submit of form, post horse to Horsedb --}}
@@ -64,7 +51,8 @@
                                     <p>Your horse has been add to our database!</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" id="modalSubmit" class="btn btn-default submitButton" href="/">Close</button>
+                                    <button type="button" id="modalSubmit" class="btn btn-default submitButton"
+                                        href="/">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -74,4 +62,29 @@
         </div>
     </div>
 </div>
-
+<script>
+    var speedSlider = document.getElementById("horseTopSpeed");
+    var speedOutput = document.getElementById("speedValue");
+    speedOutput.innerHTML = speedSlider.value;
+    speedSlider.oninput = function () {
+        speedOutput.innerHTML = this.value;
+    }
+    var enduranceSlider = document.getElementById("horseEndurance");
+    var enduranceOutput = document.getElementById("enduranceValue");
+    enduranceOutput.innerHTML = enduranceSlider.value;
+    enduranceSlider.oninput = function () {
+        enduranceOutput.innerHTML = this.value;
+    }
+    var accSlider = document.getElementById("horseAcceleration");
+    var accOutput = document.getElementById("accValue");
+    accOutput.innerHTML = accSlider.value;
+    accSlider.oninput = function () {
+        accOutput.innerHTML = this.value;
+    }
+    var relSlider = document.getElementById("horseReliability");
+    var relOutput = document.getElementById("reliabilityValue");
+    relOutput.innerHTML = relSlider.value;
+    relSlider.oninput = function () {
+        relOutput.innerHTML = this.value;
+    }    
+</script>

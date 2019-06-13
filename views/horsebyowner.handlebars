@@ -8,11 +8,11 @@
                         <thead>
                             <tr>
                                 <th>Horse Name</th>
-                                <th>Age</th>
-                                <th>Speed</th>
-                                <th>Endurance</th>
-                                <th>Reliability</th>
-                                <th>Acceleration</th>
+                                <th style="text-align:center">Age</th>
+                                <th style="text-align:center">Speed</th>
+                                <th style="text-align:center">Endurance</th>
+                                <th style="text-align:center">Reliability</th>
+                                <th style="text-align:center">Acceleration</th>
                                 {{#if isOwner}}
                                     <th>Retire Horse?</th>
                                 {{/if}}
@@ -24,11 +24,11 @@
                             <tr>
                                 {{!-- {{#each }} --}}
                                 <td><a href="/horses/horse/{{id}}">{{horse_name}}</a></td>
-                                <td>{{age}}</td>
-                                <td>{{speed}}</td>
-                                <td>{{endurance}}</td>
-                                <td>{{reliability}}</td>
-                                <td>{{acceleration}}</td>
+                                <td style="text-align:center">{{age}}</td>
+                                <td style="text-align:center">{{speed}}</td>
+                                <td style="text-align:center">{{endurance}}</td>
+                                <td style="text-align:center">{{reliability}}</td>
+                                <td style="text-align:center">{{acceleration}}</td>
                                 {{#if ../isOwner}}
                                     <td>
                                         <button type="button" id="{{id}}" class="btn btn-danger deleteButton">X</button>

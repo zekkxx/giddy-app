@@ -8,8 +8,8 @@
                         <thead>
                             <tr>
                                 <th>Horse Name</th>
-                                <th>Horse Age</th>
-                                <th>Topspeed</th>
+                                <th>Age</th>
+                                <th>Speed</th>
                                 <th>Endurance</th>
                                 <th>Reliability</th>
                                 <th>Acceleration</th>
@@ -23,7 +23,7 @@
                             {{#horses}}
                             <tr>
                                 {{!-- {{#each }} --}}
-                                <td>{{horse_name}}</td>
+                                <td><a href="/horses/horse/{{id}}">{{horse_name}}</a></td>
                                 <td>{{age}}</td>
                                 <td>{{speed}}</td>
                                 <td>{{endurance}}</td>
@@ -31,7 +31,7 @@
                                 <td>{{acceleration}}</td>
                                 {{#if ../isOwner}}
                                     <td>
-                                        <button type="button" class="btn btn-danger">X</button>
+                                        <button type="button" id="{{id}}" class="btn btn-danger deleteButton">X</button>
                                     </td>
                                 {{/if}}
                                 {{!-- {{/each}} --}}

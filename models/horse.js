@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable camelcase */
+
+//using sequelize, this model creates a horse table inside of horsedb. The table will have horse_name, age, speed, acceleration, reliability, and endurance as columns. The id column and user_id(as foreign key) will be auto-generated through sequelize.
 module.exports = function(sequelize, DataTypes) {
   var Horse = sequelize.define("Horse", {
     horse_name: {
@@ -21,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNUll: false,
       validate: {
-        len: [0, 5],
+        len: [1, 10],
         isInt: true
       }
     },
@@ -29,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNUll: false,
       validate: {
-        len: [0, 5],
+        len: [1, 10],
         isInt: true
       }
     },
@@ -37,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNUll: false,
       validate: {
-        len: [0, 5],
+        len: [1, 10],
         isInt: true
       }
     },
@@ -45,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNUll: false,
       validate: {
-        len: [0, 5],
+        len: [1, 10],
         isInt: true
       }
     }

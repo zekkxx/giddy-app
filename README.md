@@ -1,19 +1,26 @@
-# Project 2: Giddy-App
-**2019 Spring Cohert of the University of Minnesota Programming Bootcamp:** Project 2
+# Giddy-App
+An application designed to provide a mock interface for horse racing and betting in a manner similar to Salty Bets streams.
+* Deployment: https://giddyapp.herokuapp.com/
+* Repository: https://github.com/zekkxx/giddy-app
 
-**Team Defenders:**
-* Chris Cannady - Iron Fist
-* Ellen Buelow - Jessica Jones
-* MichaelSynder - Luke Cage
-* Kieran Anthony - Daredevil Kieran
+# Development
+## Project Team (Defenders)
+* [Chris Cannady](https://github.com/christophcannz) - Iron Fist
+* [Ellen Buelow](https://github.com/buelowek1225) - Jessica Jones
+* [Michael Synder](https://github.com/mikesnyder) - Luke Cage
+* [Kieran Anthony](https://github.com/zekkxx/) - Daredevil
 
-**App Utility:**
+## Project Dependencies:
+**Express, Passport, MySQL (Sequelize)**
+For a full list of dependencies reference the *package.json* file(s) included in the project.
 
-The Giddy-App MVP is designed as the foundation for a interactive game. The user can sign-up, log-in, add horses with corresponding stats assigned by the user. 
+## Project Installation:
+This application uses MySQL, a schema and seeds file have been provided for you in the `db` folder in this project.
+You may need to update the `config.json` file found in the config folder in this project to connect to the local database.
 
-The future plan for this site would be to use the horse statistics to have different user's horses compete agains one another and allow user to bet on horses.
+This application utilizes NPM, make sure to run `npm i` to install all dependencies before running locally.
 
-# Giddy-App Demo
+# Giddy-App Preview
 
 **Giddy-App register and login:**
 ![Gif example of User register/Login.](public\videos\Example_Register_Login.gif)
@@ -28,37 +35,7 @@ The future plan for this site would be to use the horse statistics to have diffe
 ![Gif example delete horse.](public\videos\Example_Delete_Horse.gif)
 *Note: User must be logged in and have horses to delete any horses.*
 
-
-# Project 2: Requirements
-* The requirements for Project #2 are as follows:  
-* Must use a Node and Express Web Server  
-* Must be backed by a MySQL Database with a Sequelize ORM  
-* Must have both GET and POST routes for retrieving and adding new data  
-Must be deployed using Heroku (with Data)  
-* Must utilize at least one new library, package, or technology that we haven't discusse  
-* Must have a polished frontend / UI  
-* Must have folder structure that meets MVC Paradigm  
-* Must meet good quality coding standards (indentation, scoping, naming)  
-* Must not expose sensitive API key information on the server, see Protecting-API-Keys-In-Node.md  
-
-    Optional tools
-
-    * Handlebars  
-    * Authentication (JSON Web Tokens, sessions, ec)  
-    * Existing Public Dataset to power DB  
-    * Migration strategy for sharing data across team members (seed/schema.sql)
-
-# New Technology Used
-* Passport
-* Flexbox
-
-# Deployed Heroku Application
-Deployed Heroku Link: https://cryptic-tor-78469.herokuapp.com/
-
-*Note: No special credentials needed to test site. To run application register, login, and create/delete horses.*
-
 # Unique code to highlight
-
 As part of our original project goal we hoped to generate a race between horses. The horses chances of winning is based on the horses' statistics. In our project folder there is a 'racing' folder with the start of that code. 
 
 Gif example of racing horses based on given values (basis of future work):
